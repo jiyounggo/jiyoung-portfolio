@@ -7,18 +7,53 @@
     <title>Seonju's Protfolio</title>
     <meta name="description" content="Front-engineer Portfolio" />
     <meta name="author" content="Seonju" />
-    <link rel="icon" type="image/favicon" href="imgs/favicon.png" />
+    <link rel="icon" type="image/favicon" href="img/favicon.png" />
     <script
       src="https://kit.fontawesome.com/b9f9b0f4fb.js"
       crossorigin="anonymous"
     ></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Noto+Sans+KR:wght@400;700&family=Lobster&family=Noto+Sans+HK:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css//reset.css" />
     <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <!-- navbar -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <img src="./img/favicon.png" alt="logo" class="navbar__img" />
+        <a href="#" class="navbar__logo__name">Seonju</a>
+      </div>
+      <div class="navbar__menu">
+        <ul class="navbar__menu__head">
+          <li class="navbar__menu__item">Home</li>
+          <li class="navbar__menu__item">About</li>
+          <li class="navbar__menu__item">Skill</li>
+          <li class="navbar__menu__item">Project</li>
+          <li class="navbar__menu__item">Contact</li>
+        </ul>
+      </div>
+    </nav>
+    <!-- section -->
+    <!-- home -->
+    <section id="home">
+      <div class="content">
+        <img src="./img/avata.png" alt="avata" class="home__avata" />
+        <h1 class="home__title">Hello , <br />I'm Seonju</h1>
+        <h2 class="home__subtitle">
+          하루 하루 발전하는 Frontend-engineer 문선주입니다
+        </h2>
+        <div class="home__contact"><a href="#">contact</a></div>
+      </div>
+    </section>
+    <section id="about">나에대한 이야기</section>
+    <section id="skill">내가가진 기술</section>
+    <section id="project">프로젝트</section>
+    <section id="contact">그외의것들</section>
+  </body>
 </html>
