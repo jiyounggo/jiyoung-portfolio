@@ -1,28 +1,4 @@
 "use strict";
-// name typing animation
-const typingBool = false;
-let typingIdx = 0;
-const nameTyping = document.querySelector(".home__title").innerText;
-const cursorTyping = document.querySelector("#typing");
-const typingName = nameTyping.split("");
-let typingInt = setInterval(typing, 100);
-
-// console.log(cursorTyping);
-
-if (typingBool === false) {
-  typingBool == true;
-}
-
-function typing() {
-  if (typingIdx < typingName.length) {
-    $("#typing").append(typingName[typingIdx - 1]);
-
-    typingIdx++;
-    console.log(typingName[typingIdx - 1]);
-  } else {
-    clearInterval(typingInt);
-  }
-}
 
 // navbar animation
 
