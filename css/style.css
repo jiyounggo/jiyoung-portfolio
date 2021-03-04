@@ -20,6 +20,34 @@ a:hover,
 a:link {
   color: #8d3e01;
 }
+/* backBtn */
+
+.backBtn {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(241, 193, 138);
+  font-size: 30px;
+  color: white;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.backBtn > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backBtn.active {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
+}
 
 /* navbar */
 
@@ -145,12 +173,70 @@ a.navbar--dark,
   border-radius: 50%;
 }
 .home__title {
+  display: none;
+  /* color: rgb(255, 255, 255);
+  font-size: 50px;
+  padding: 20px;
+  text-shadow: #e9cdb8 1px 1px, #e9cdb8 -0px 0px, #e9cdb8 -1px 1px,
+    #e9cdb8 -2px 2px, #e9cdb8 -3px 3px, #e9cdb8 -4px 4px, #e9cdb8 -5px 5px,
+    #e9cdb8 -6px 6px, #e9cdb8 -7px 7px, #e9cdb8 -8px 8px, #e9cdb8 -9px 9px; */
+  /* animation-name: titleAnimation;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+  animation-iteration-count: infinite; */
+}
+
+#typing {
+  font-family: "DM Sans", sans-serif;
+  display: inline-block;
+  letter-spacing: 4px;
+  animation-name: cursor;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
   color: rgb(255, 255, 255);
   font-size: 50px;
   padding: 20px;
   text-shadow: #e9cdb8 1px 1px, #e9cdb8 -0px 0px, #e9cdb8 -1px 1px,
     #e9cdb8 -2px 2px, #e9cdb8 -3px 3px, #e9cdb8 -4px 4px, #e9cdb8 -5px 5px,
     #e9cdb8 -6px 6px, #e9cdb8 -7px 7px, #e9cdb8 -8px 8px, #e9cdb8 -9px 9px;
+}
+@keyframes cursor {
+  0% {
+    border-right: 1px solid #fff;
+  }
+  50% {
+    border-right: 1px solid #000;
+  }
+  100% {
+    border-right: 1px solid #fff;
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+    -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+    clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+  }
 }
 
 .home__subtitle {
@@ -305,30 +391,24 @@ a.navbar--dark,
   position: absolute;
   top: 0;
   left: 0;
-  width: 97%;
+  width: 98%;
   height: 15px;
   border-radius: 100px;
   background-color: rgb(241, 144, 32);
-  animation-name: loading-bar;
-  animation-duration: 1600ms;
+  transition: opacity 300ms ease-in-out;
 }
-.skill__bar__gauge.javascript {
-  width: 80%;
-  animation-name: loading-bar-js;
-  animation-duration: 1600ms;
+.skill__bar__gauge.html,
+.skill__bar__gauge.javascript,
+.skill__bar__gauge.css .skill__bar__gauge.boot {
+  width: 97%;
 }
-
 .skill__bar__gauge.react,
 .skill__bar__gauge.node {
   width: 58%;
-  animation-name: loading-bar-react;
-  animation-duration: 1600ms;
 }
 
 .skill__bar__gauge.node {
   width: 40%;
-  animation-name: loading-bar-node;
-  animation-duration: 1600ms;
 }
 /* skill animation */
 

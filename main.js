@@ -1,4 +1,28 @@
 "use strict";
+// name typing animation
+const typingBool = false;
+let typingIdx = 0;
+const nameTyping = document.querySelector(".home__title").innerText;
+const cursorTyping = document.querySelector("#typing");
+const typingName = nameTyping.split("");
+let typingInt = setInterval(typing, 100);
+
+// console.log(cursorTyping);
+
+if (typingBool === false) {
+  typingBool == true;
+}
+
+function typing() {
+  if (typingIdx < typingName.length) {
+    $("#typing").append(typingName[typingIdx - 1]);
+
+    typingIdx++;
+    console.log(typingName[typingIdx - 1]);
+  } else {
+    clearInterval(typingInt);
+  }
+}
 
 // navbar animation
 
@@ -29,10 +53,6 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   }
   scrollIntoView(link);
-
-  const selected = document.querySelector(".navbar__menu__item.select");
-  selected.classList.remove("select");
-  event.target.classList.add("select");
 });
 
 //contact btn scroll
@@ -55,9 +75,6 @@ const skill = document.querySelector(".skill__container");
 const project = document.querySelector(".project__container");
 
 adjustOpacity(home);
-adjustOpacity(about);
-adjustOpacity(skill);
-adjustOpacity(project);
 
 function adjustOpacity(element) {
   document.addEventListener("scroll", () => {
@@ -70,10 +87,50 @@ function adjustOpacity(element) {
   });
 }
 
-//button 활성화 만들기
+// backbtn scroll event
+const backBtn = document.querySelector(".backBtn");
+backBtn.addEventListener("click", () => {
+  scrollIntoView("#home");
+});
+document.addEventListener("scroll", () => {
+  const homeHeight = home.getBoundingClientRect().height;
+  if (window.scrollY > homeHeight / 2) {
+    backBtn.classList.add("active");
+  } else {
+    backBtn.classList.remove("active");
+  }
+});
 
-const navBtn = document.querySelector(".navbar__menu__item");
+// skill animation
+function gageNone(element) {
+  element.style.opacity = 0;
+}
+function gageStyle(element) {
+  element.style.opacity = 1;
+}
 
-navBtn.addEventListener("click", () => {
-  console.log("e");
+document.addEventListener("scroll", () => {
+  const skillHeight = skill.getBoundingClientRect().height;
+
+  const skillGageHtml = document.querySelector(".skill__bar__gauge.html");
+  const skillGageCss = document.querySelector(".skill__bar__gauge.css");
+  const skillGageJs = document.querySelector(".skill__bar__gauge.javascript");
+  const skillGageReact = document.querySelector(".skill__bar__gauge.react");
+  const skillGageNode = document.querySelector(".skill__bar__gauge.node");
+  const skillGageBoot = document.querySelector(".skill__bar__gauge.boot");
+  if (window.scrollY > skillHeight) {
+    gageStyle(skillGageReact);
+    gageStyle(skillGageHtml);
+    gageStyle(skillGageCss);
+    gageStyle(skillGageJs);
+    gageStyle(skillGageNode);
+    gageStyle(skillGageBoot);
+  } else {
+    gageNone(skillGageReact);
+    gageNone(skillGageHtml);
+    gageNone(skillGageCss);
+    gageNone(skillGageJs);
+    gageNone(skillGageNode);
+    gageNone(skillGageBoot);
+  }
 });
