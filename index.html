@@ -27,15 +27,15 @@
     <nav id="navbar">
       <div class="navbar__logo">
         <img src="./img/favicon.png" alt="logo" class="navbar__img" />
-        <a href="#" class="navbar__logo__name">Seonju</a>
+        <a href="index.html" class="navbar__logo__name">Seonju</a>
       </div>
       <div class="navbar__menu">
         <ul class="navbar__menu__head">
-          <li class="navbar__menu__item">Home</li>
-          <li class="navbar__menu__item">About</li>
-          <li class="navbar__menu__item">Skill</li>
-          <li class="navbar__menu__item">Project</li>
-          <li class="navbar__menu__item">Contact</li>
+          <li class="navbar__menu__item select" data-link="#home">Home</li>
+          <li class="navbar__menu__item" data-link="#about">About</li>
+          <li class="navbar__menu__item" data-link="#skill">Skill</li>
+          <li class="navbar__menu__item" data-link="#project">Project</li>
+          <li class="navbar__menu__item" data-link="#contact">Contact</li>
         </ul>
       </div>
       <button class="navbar__toggle-btn">
@@ -45,7 +45,7 @@
     <!-- section -->
     <!-- home -->
     <section id="home">
-      <div class="content">
+      <div class="content home__container">
         <img src="./img/avata.png" alt="avata" class="home__avata" />
         <h1 class="home__title">Hello , <br />I'm Seonju</h1>
         <h2 class="home__subtitle">Frontend-engineer 문선주</h2>
@@ -53,7 +53,7 @@
       </div>
     </section>
     <section id="about">
-      <div class="content">
+      <div class="content about__container">
         <h1 class="about__title">About Me</h1>
         <h2 class="about__subtitle">
           새로운것을 배우는걸 두려워하지 않고 <br />
@@ -112,7 +112,7 @@
       </div>
     </section>
     <section id="skill">
-      <div class="content">
+      <div class="content skill__container">
         <h1 class="skill__title">Skill</h1>
         <div class="skill__total">
           <div class="skill__content">
@@ -169,7 +169,7 @@
       </div>
     </section>
     <section id="project">
-      <div class="content">
+      <div class="content project__container">
         <h1 class="project__title">My Project</h1>
         <div class="container project__category">
           <div class="project__sub">
@@ -286,7 +286,7 @@
         <h1 class="contact__title">Contact</h1>
         <h2 class="contact__mail">moon_sunny116@naver.com</h2>
         <h3 class="contact__git">
-          <a href="https://github.com/MoonSsunny">
+          <a href="https://github.com/MoonSsunny" target="blank">
             <i class="fab fa-github"></i>
           </a>
         </h3>
