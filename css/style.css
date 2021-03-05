@@ -24,6 +24,7 @@ a:link {
 
 .backBtn {
   position: fixed;
+  z-index: 300;
   right: 50px;
   bottom: 50px;
   width: 50px;
@@ -161,7 +162,7 @@ a.navbar--dark,
 .content {
   max-width: 1980px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 85px 20px 20px;
   text-align: center;
 }
 
@@ -464,6 +465,10 @@ a.navbar--dark,
   .skill__study__list {
     display: none;
   }
+  .skill__total {
+    display: block;
+    padding: 16px;
+  }
 }
 
 /* project */
@@ -532,6 +537,9 @@ a.navbar--dark,
   .container.project__category {
     display: block;
   }
+  .project__name {
+    width: 250px;
+  }
 }
 
 /* contact */
@@ -552,4 +560,10 @@ a.navbar--dark,
   margin: 30px 0;
   font-size: 13px;
   color: rgb(128, 126, 126);
+}
+
+@media screen and (max-width: 768px) {
+  .contact__mail {
+    font-size: 20px;
+  }
 }
