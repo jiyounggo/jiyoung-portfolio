@@ -75,6 +75,8 @@ document.addEventListener("scroll", () => {
   } else {
     backBtn.classList.remove("active");
   }
+
+  navbarMenu.classList.remove("open");
 });
 
 // skill animation
@@ -109,4 +111,11 @@ document.addEventListener("scroll", () => {
     gageNone(skillGageNode);
     gageNone(skillGageBoot);
   }
+});
+
+// max-width 768px toggle button
+
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
 });

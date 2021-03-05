@@ -122,21 +122,32 @@ a.navbar--dark,
   border: none;
   background-color: transparent;
   color: rgb(241, 193, 138);
+  cursor: pointer;
+}
+
+.navbar__menu.open {
+  display: block;
 }
 /* 768px screen width */
 
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
+    color: #fff;
   }
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background: rgba(240, 194, 161);
+  }
+  .navbar__logo__name {
+    color: #fff;
   }
   .navbar__menu {
     display: none;
     margin: 0 auto;
     text-align: center;
+    color: #fff;
   }
 
   .navbar__menu__head {
