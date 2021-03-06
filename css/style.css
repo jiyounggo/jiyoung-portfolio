@@ -140,6 +140,7 @@ a.navbar--dark,
     flex-direction: column;
     align-items: flex-start;
     background: rgba(240, 194, 161);
+    padding-bottom: 20px;
   }
   .navbar__logo__name {
     color: #fff;

@@ -29,6 +29,7 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   }
   scrollIntoView(link);
+  selectNavItem(target);
 });
 
 //contact btn scroll
@@ -63,7 +64,7 @@ function adjustOpacity(element) {
   });
 }
 
-// backbtn scroll event
+// backbtn scroll event & navbar toggle envent remove
 const backBtn = document.querySelector(".backBtn");
 backBtn.addEventListener("click", () => {
   scrollIntoView("#home");
@@ -118,4 +119,53 @@ document.addEventListener("scroll", () => {
 const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 navbarToggleBtn.addEventListener("click", () => {
   navbarMenu.classList.toggle("open");
+});
+
+//nav button scroll  활성화
+
+const sectionIds = ["#home", "#about", "#skill", "#project", "#contact"];
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("select");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("select");
+}
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+const obserCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (!entry.isIntersecting) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+const observer = new IntersectionObserver(obserCallback, obserCallback);
+sections.forEach((section) => observer.observe(section));
+
+window.addEventListener("wheel", () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (
+    window.scrollY + window.innerHeight ===
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
 });
