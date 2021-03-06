@@ -29,7 +29,6 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   }
   scrollIntoView(link);
-  selectNavItem(target);
 });
 
 //contact btn scroll
@@ -38,11 +37,6 @@ const contactBtn = document.querySelector(".home__contact");
 contactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
 });
-
-function scrollIntoView(selector) {
-  const scroll = document.querySelector(selector);
-  scroll.scrollIntoView({ behavior: "smooth" });
-}
 
 // scroll 투명도
 
@@ -147,6 +141,7 @@ const obserCallback = (entries, observer) => {
     console.log(entry);
     if (!entry.isIntersecting) {
       const index = sectionIds.indexOf(`#${entry.target.id}`);
+      console.log(index, entry.target.id);
       if (entry.boundingClientRect.y < 0) {
         selectedNavIndex = index + 1;
       } else {
@@ -166,6 +161,13 @@ window.addEventListener("wheel", () => {
     document.body.clientHeight
   ) {
     selectedNavIndex = navItems.length - 1;
+    console.log(selectedNavItem);
   }
   selectNavItem(navItems[selectedNavIndex]);
 });
+
+function scrollIntoView(selector) {
+  const scroll = document.querySelector(selector);
+  scroll.scrollIntoView({ behavior: "smooth" });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
+}
