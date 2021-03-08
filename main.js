@@ -138,7 +138,6 @@ const observerOptions = {
 
 const obserCallback = (entries, observer) => {
   entries.forEach((entry) => {
-    console.log(entry);
     if (!entry.isIntersecting) {
       const index = sectionIds.indexOf(`#${entry.target.id}`);
       console.log(index, entry.target.id);
@@ -150,7 +149,7 @@ const obserCallback = (entries, observer) => {
     }
   });
 };
-const observer = new IntersectionObserver(obserCallback, obserCallback);
+const observer = new IntersectionObserver(obserCallback, observerOptions);
 sections.forEach((section) => observer.observe(section));
 
 window.addEventListener("wheel", () => {

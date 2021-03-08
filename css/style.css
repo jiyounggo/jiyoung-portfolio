@@ -384,9 +384,12 @@ a.navbar--dark,
   transition: opacity 300ms ease-in-out;
 }
 .skill__bar__gauge.html,
-.skill__bar__gauge.javascript,
-.skill__bar__gauge.css .skill__bar__gauge.boot {
-  width: 97%;
+.skill__bar__gauge.css,
+.skill__bar__gauge.boot {
+  width: 90%;
+}
+.skill__bar__gauge.javascript {
+  width: 70%;
 }
 .skill__bar__gauge.react,
 .skill__bar__gauge.node {
