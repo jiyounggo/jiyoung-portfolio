@@ -123,6 +123,10 @@ const navItems = sectionIds.map((id) =>
   document.querySelector(`[data-link="${id}"]`)
 );
 
+window.addEventListener("load", () => {
+  selectNavItem(navItems[selectedNavIndex]);
+});
+
 function selectNavItem(selected) {
   selectedNavItem.classList.remove("select");
   selectedNavItem = selected;
@@ -138,9 +142,8 @@ const observerOptions = {
 
 const obserCallback = (entries, observer) => {
   entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
       const index = sectionIds.indexOf(`#${entry.target.id}`);
-      console.log(index, entry.target.id);
       if (entry.boundingClientRect.y < 0) {
         selectedNavIndex = index + 1;
       } else {
@@ -157,10 +160,9 @@ window.addEventListener("wheel", () => {
     selectedNavIndex = 0;
   } else if (
     window.scrollY + window.innerHeight ===
-    document.body.clientHeight
+    document.body.scrollHeight
   ) {
     selectedNavIndex = navItems.length - 1;
-    console.log(selectedNavItem);
   }
   selectNavItem(navItems[selectedNavIndex]);
 });
