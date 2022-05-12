@@ -4,7 +4,7 @@
     --color-white: #ffffff;
     --color-light-white: #eeeeee;
     --color-dark-white: #bdbdbd;
-    --color-pink: #fe918d;
+    --color-pink: #dbbfd9;
     --color-dark-pink: #ff6863;
     --color-black: #4d4d4d;
     --color-dark-grey: #4d4d4d;
@@ -107,6 +107,7 @@
 .navbar__logo{
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+}
 .navbar__logo img{
  width: 25px;
 }
@@ -130,4 +131,31 @@ bottom:7px;
 .navbar__menu__item:hover{
   background-color: var(--color-dark-pink);
   border-radius: 4px;
+}
+
+/*home*/
+#home{
+background: url('img/1.png') center/cover no-repeat;
+padding: 40px;
+text-align: center;
+}
+.home__title,.home_description{
+
+color: var(--color-white);
+}
+
+.home__avatar{
+  width: 250px;
+  height: 270px;
+  border-radius: 50%;
+  border:2px solid var(--color-white)
+}
+
+.home__contact{
+  font-size:var(--font-regular);
+  font-weight: var(--weight-regular);
+  margin: 25px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-white);
+  border-radius: var(--size-border-radius);
 }
