@@ -62,6 +62,7 @@
     cursor: pointer;
     border: none;
     outline: none;
+    color: var(--color-white);
   }
   
   /* Typography */
@@ -291,4 +292,109 @@ background-color: var(--color-orange);
 
 .tools,.etc{
   padding: 10px;
+}
+
+/*work*/
+
+.work__categories{
+  margin: 30px;
+}
+
+.category__btn{
+  border :1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+  color: var(--color-black);
+}
+
+.category__btn.active,
+.category__btn:hover{
+  background-color: var(--color-dark-pink);
+  color: var(--color-white);
+}
+
+.category__btn.active .category__count,
+.category__btn:hover .category__count
+{
+  opacity: 1;
+  top:0px;
+}
+
+.category__count{
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  /*span과 같은 block 요소에
+  높이와 넓이를 지정해주고 싶을때 사용*/
+  line-height:24px ;
+  position: relative;
+  /*요소 자기 자신의 원래 위치(static일 때의 위치)
+  를 기준으로 배치한다.원래 위치를 기준으로
+  위쪽(top), 아래쪽(bottom), 왼쪽(left),
+  오른쪽(right)에서 얼마만큼 떨어질 지 결정한다.*/
+  top: -20px;
+  left:4px;
+  opacity: 0;
+  transition: var(--animation-duration);
+}
+
+.work__projects{
+  display: flex;
+  flex-wrap: wrap;
+  /*정렬된 요소들의 총 넓이가 부모 넓이보다
+  클때, 이요소들을 다음 줄에 이어서 정렬해줌*/
+  justify-content: center;
+}
+
+.project{
+  position: relative;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+}
+
+.project__img{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.project__description{
+  position: absolute;
+  /* 부모 요소를 기준으로 배치 */
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  top:0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.project:hover .project__description{
+  opacity: 0.8;
+}
+
+.project__description h3{
+  color: var(--color-white);
+}
+
+/*html에 하나씩 하는방법 말고
+간편하게 css에서 글자사이에 선을 추가하는 방법*/
+.project__description h3:after {
+content : '';
+display:block;
+position: relative;
+left: 50%;
+margin-left: -12px;
+margin-top: 8px;
+width: 30px;
+height: 2px;
+background-color: var(--color-dark-white);
 }
