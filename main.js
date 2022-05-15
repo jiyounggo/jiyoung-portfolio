@@ -38,6 +38,43 @@ contact.addEventListener('click',() =>{
     scrollIntoView('#contact');
 });
 
+
+
+
+//scoll slowly transparent
+
+const home= document.querySelector('#home');
+const homeheight = home.getBoundingClientRect().height;
+document.addEventListener('scroll',()=>{
+
+    home.style.opacity=1-window.scrollY/homeheight
+
+});
+
+
+//arrow up
+
+const arrowup=document.querySelector('.arrow-up');
+
+document.addEventListener('scroll', ()=>{
+
+    if(window.scrollY>homeheight/2){
+        arrowup.classList.add('visible');
+    }else{
+        arrowup.classList.remove('visible');
+
+    }
+
+})
+
+//click on the "arrow up"
+
+arrowup.addEventListener('click', ()=>{
+
+    scrollIntoView('#home');
+})
+
+
 function scrollIntoView(selector){
     const scrollTo=document.querySelector(selector);
     scrollTo.scrollIntoView({behavior : "smooth"});
