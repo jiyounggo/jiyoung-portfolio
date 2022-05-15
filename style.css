@@ -12,7 +12,7 @@
     --color-light-grey: #7c7979;
     --color-blue: #73aace;
     --color-yellow: #fff7d1;
-    --color-orange: #feb546;
+    --color-orange: #feec46;
     --color-black: #000000;
   
     /* Font size */
@@ -97,12 +97,21 @@
 /* Navbar */
 
 #navbar{
-  background-color: var(--color-pink);
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
   color: var(--color-white);
+  transition: all var(--animation-duration) ease-in-out;
+
+}
+
+#navbar.navbar--dark{
+  background-color: var(--color-pink);
+  padding: 16px;
 
 }
 .navbar__logo{
