@@ -369,7 +369,15 @@ background-color: var(--color-orange);
   /*정렬된 요소들의 총 넓이가 부모 넓이보다
   클때, 이요소들을 다음 줄에 이어서 정렬해줌*/
   justify-content: center;
+  transition: all var(--animation-duration) ease-in;
 }
+
+
+.anim-out{
+  transform: scale(0.96) translateY(40px);
+  opacity: 0;
+}
+
 
 .project{
   position: relative;
@@ -397,6 +405,7 @@ background-color: var(--color-orange);
   justify-content: center;
   opacity: 0;
 }
+
 
 .project:hover .project__description{
   opacity: 0.8;
@@ -514,6 +523,8 @@ background-color: var(--color-dark-white);
 .invisible{
   display: none;
 }
+
+
 /*For below 768px screen width */
 
 @media screen  and (max-width : 760px){
