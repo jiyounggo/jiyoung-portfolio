@@ -80,3 +80,30 @@ function scrollIntoView(selector){
     scrollTo.scrollIntoView({behavior : "smooth"});
 
 }
+
+
+//project filtering
+
+const workBtn = document.querySelector('.work__categories');
+const projects = document.querySelectorAll('.project');
+
+
+workBtn.addEventListener('click',(event)=>{
+const filter = event.target.dataset.filter;
+
+/* console.log(filter)를 하게되면 span버튼을 클릭했을때 undefined 이 나오기 때문에 
+html에서 각 span data-type 지정해주면 문제가 해결된다*/
+projects.forEach((pro)=>{
+ 
+if(filter===pro.dataset.type ||filter==='all'){
+    pro.classList.remove('invisible');
+}else{
+    pro.classList.add('invisible');
+}
+
+})});
+
+
+
+//project animation
+
