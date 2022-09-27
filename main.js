@@ -19,15 +19,24 @@ if(window.scrollY>navbarHeight){
 const navbarMenu= document.querySelector('.navbar__menu');
 
 navbarMenu.addEventListener('click',(event)=>{
-
- 
   const link =event. target .dataset.link;
-
     if(link==null){
         return;
     }
     scrollIntoView(link);
+  
+   
 });
+
+//hamburger button for small screen
+const navbarToggleBtn= document.querySelector('.navbar__toggle-btn');
+
+navbarToggleBtn.addEventListener('click', () => {
+navbarMenu.classList.toggle('open');
+
+
+});
+
 
 //contact
 
@@ -37,9 +46,6 @@ contact.addEventListener('click',() =>{
 
     scrollIntoView('#contact');
 });
-
-
-
 
 //scoll slowly transparent
 
@@ -65,7 +71,7 @@ document.addEventListener('scroll', ()=>{
 
     }
 
-})
+});
 
 //click on the "arrow up"
 
@@ -73,8 +79,6 @@ arrowup.addEventListener('click', ()=>{
 
     scrollIntoView('#home');
 })
-
-
 
 
 
@@ -89,6 +93,14 @@ workBtn.addEventListener('click',(event)=>{
 const filter = event.target.dataset.filter;
 /* console.log(filter)를 하게되면 span버튼을 클릭했을때 undefined 이 나오기 때문에 
 html에서 각 span data-type 지정해주면 문제가 해결된다*/
+
+
+//botton state
+const active = document.querySelector('.category__btn.selected');
+active.classList.remove('selected');
+const target = event.target.nodeName ==='BUTTON' ? event.target : event.target.parentNode;
+target.classList.add('selected');
+
 
 //project animation
 projectContainer.classList.add('anim-out');
@@ -109,9 +121,6 @@ if(filter===pro.dataset.type ||filter==='all'){
 
 });
 
-
-
-
 });
 
 function scrollIntoView(selector){
@@ -119,3 +128,22 @@ function scrollIntoView(selector){
     scrollTo.scrollIntoView({behavior : "smooth"});
 
 }
+
+
+// loading
+const loader = document.querySelector('.loader');
+const html = document.querySelector('html');
+
+html.style.overflow = 'hidden'; //로딩 중 스크롤 방지
+
+window.addEventListener('load', ()=>{
+
+     setTimeout(() => { //로딩속도 구현
+         loader.style.opacity = '0';
+         html.style.overflow = 'auto'; //스크롤 방지 해제
+        
+        setTimeout(() => {
+         loader.style.display = 'none';
+      }, 800);
+  }, 1000);
+})
