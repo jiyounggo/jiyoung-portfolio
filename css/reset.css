@@ -101,7 +101,6 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
 }
 body {
   line-height: 1;
@@ -118,7 +117,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
