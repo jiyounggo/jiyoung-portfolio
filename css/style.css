@@ -535,6 +535,9 @@ a.navbar--dark,
   flex-wrap: wrap;
   justify-content: center;
 }
+.content.project__container {
+  max-width: 1000px;
+}
 
 .project__sub {
   position: relative;
